@@ -1,0 +1,1 @@
+"""Grades checker package."""
