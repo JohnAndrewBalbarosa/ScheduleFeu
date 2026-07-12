@@ -8,35 +8,26 @@ Repository: [JohnAndrewBalbarosa/ScheduleFeu](https://github.com/JohnAndrewBalba
 
 ## Problem and Goal
 
-This project should be read as a technical build: it identifies a concrete workflow or research problem, implements a working system around that problem, and documents enough evidence for another person to understand, run, and evaluate the result.
+**Problem.** FEU Tech students must compare many SOLAR schedules manually to find common availability while avoiding class conflicts.
 
-Primary goals:
-
-- Explain what the project does and who it is for.
-- Show the architecture and implementation choices.
-- Provide enough setup guidance for local review.
-- Report measured results when available.
-- Make limitations and next steps explicit instead of implying unverified impact.
+**Goal.** Collect schedule data, calculate conflict-free group availability, and export a shareable visual report.
 
 ## System Design
 
-Current documented components:
-
-- Source implementation for the core project logic.
-
-Project tags:
-
-- To be tagged based on the final project stack.
+- `src/`: Python package for SOLAR collection, schedule normalization, conflict analysis, and reporting.
+- Playwright: rendered-page access and schedule extraction.
+- Pillow: PNG report generation; OpenPyXL: optional workbook mappings; Rich: CLI output.
 
 ## Setup and Usage
 
-Use the commands below as the starting point for local setup. Verify environment variables, secrets, datasets, and external services before running production-like workflows.
-
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-pip install -e .
+playwright install chromium
+
+# Inspect available commands
+python -m grades_checker.cli --help
 ```
 
 ## Evaluation Method
